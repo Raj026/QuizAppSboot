@@ -4,6 +4,7 @@ import com.rapa.quizapp.Question;
 import com.rapa.quizapp.controller.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,5 +18,13 @@ public class QuestionController {
     @GetMapping("allQuestions")
     public List<Question> getAllQuestions(){
         return questionService.getAllQuestions();
+    }
+
+    @GetMapping("category/{category}")
+    //If you mention {cat} in here then you have to make changes in the path variable
+    //i.e.- @Pathvariable("cat") String category
+    public List<Question> getQuestionByCategory(@PathVariable String category) {
+        return questionService.getQuestionsByCategory(category);
+
     }
 }
