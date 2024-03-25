@@ -1,4 +1,4 @@
-package com.rapa.quizapp;
+package com.rapa.quizapp.model;
 
 
 import jakarta.persistence.Entity;
